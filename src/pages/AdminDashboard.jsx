@@ -6,6 +6,9 @@ import { Plus, Edit2, Trash2, Eye, LogOut, Save, X, Loader } from 'lucide-react'
 import Button from '../components/shared/Button';
 
 const AdminDashboard = () => {
+  // ADMIN EMAIL - Change this to your admin email
+  const ADMIN_EMAIL = 'info@amidost.com';
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
@@ -35,12 +38,15 @@ const AdminDashboard = () => {
 
   const categories = ['Metabolic Health', 'Pregnancy', 'Gynecology', 'Wellness', 'Nutrition'];
 
+  // Check if current user is admin
+  const isAdmin = user && user.email === ADMIN_EMAIL;
+
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      if (currentUser) {
+      if (currentUser && currentUser.email === ADMIN_EMAIL) {
         fetchArticles();
       }
     });
@@ -260,6 +266,29 @@ const AdminDashboard = () => {
               Sign In
             </Button>
           </form>
+        </div>
+      </div>
+    );
+  }
+
+  // Check if logged-in user is NOT the admin
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center px-4">
+        <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full text-center">
+          <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <X className="text-red-600" size={32} />
+          </div>
+          <h1 className="text-2xl font-bold text-slate-900 mb-4">Access Denied</h1>
+          <p className="text-slate-600 mb-6">
+            You are logged in as <strong>{user.email}</strong>, but this account does not have admin privileges.
+          </p>
+          <p className="text-sm text-slate-500 mb-6">
+            Only the authorized administrator can access this dashboard.
+          </p>
+          <Button variant="secondary" onClick={handleLogout} className="w-full">
+            <LogOut size={16} /> Logout
+          </Button>
         </div>
       </div>
     );
