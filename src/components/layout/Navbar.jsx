@@ -57,7 +57,7 @@ const Navbar = () => {
               <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-rose-500 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
             </Link>
           ))}
-          <a href="https://www.youtube.com/@FriendlyHealth" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/@friendlyhealth" target="_blank" rel="noopener noreferrer">
             <Button
               variant={isScrolled || !isHomePage ? 'primary' : 'outline'}
               className="py-2 px-6 text-sm shadow-none"
@@ -93,7 +93,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="p-6">
-            <a href="https://www.youtube.com/@FriendlyHealth" target="_blank" rel="noopener noreferrer" className="block">
+            <a href="https://www.youtube.com/@friendlyhealth" target="_blank" rel="noopener noreferrer" className="block">
               <Button variant="primary" className="w-full justify-center">
                 Watch on YouTube
               </Button>

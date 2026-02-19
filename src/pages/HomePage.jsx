@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Play, Globe, Youtube, CheckCircle, Activity, Baby, Smartphone } from 'lucide-react';
+import { Play, Globe, Youtube, CheckCircle, Activity, Baby, Smartphone, Thermometer, Flame, Heart } from 'lucide-react';
 import Button from '../components/shared/Button';
 import SectionHeading from '../components/shared/SectionHeading';
 import FeatureCard from '../components/shared/FeatureCard';
@@ -105,6 +105,24 @@ const HomePage = () => {
               title="Health Technology"
               description="Leveraging digital platforms and mobile applications to make professional health advice accessible to all."
               delay={300}
+            />
+            <FeatureCard
+              icon={Thermometer}
+              title="Perimenopause"
+              description="Recognizing and navigating the transitional phase before menopause — from irregular cycles to hormonal fluctuations and mood changes."
+              delay={400}
+            />
+            <FeatureCard
+              icon={Flame}
+              title="Menopause"
+              description="Comprehensive support for women going through menopause, including managing hot flashes, sleep disruption, and hormonal health."
+              delay={500}
+            />
+            <FeatureCard
+              icon={Heart}
+              title="Midlife Care"
+              description="Holistic health strategies for women in midlife — covering cardiovascular health, bone density, mental wellness, and preventive care."
+              delay={600}
             />
           </div>
         </div>
